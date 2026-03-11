@@ -1,0 +1,23 @@
+Terraform - 
+uses a state file to track infrastructure resources
+
+terraform init
+Initializes terraform project and downloads providers
+
+terraform plan
+to compare the desired state with the current infrastructure state
+
+terraform apply
+Applies the changes required to reach the desired state 
+
+terraform destroy 
+Destroy all resources maanaged by terraform
+
+BUT, terraform allows targeting specific or modules using the -target flag.
+Examples:
+terraform plan -target=modeulo.vpc
+terraform apply -target=modeulo.vpc
+terraform destroy -target=modeulo.vpc
+terraform plan -target=aws_instance.web
+terraform apply -target=aws_instance.web
+terraform destroy -target=aws_instance.web
