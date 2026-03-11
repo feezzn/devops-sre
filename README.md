@@ -17,6 +17,6 @@ The goal is to document my learning journey and practical experiments.
 
 Some projects related to this repository:
 
-- Infrastructure as Code (Terraform + AWS + EKS)
-- GitOps platform using ArgoCD
-- Kubernetes application deployment
+- Infrastructure as Code (Terraform + AWS + EKS) `infra`
+- GitOps platform using ArgoCD `infra-gitops`
+- Kubernetes application deployment `myapp`
