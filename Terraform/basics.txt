@@ -21,3 +21,5 @@ terraform destroy -target=modeulo.vpc
 terraform plan -target=aws_instance.web
 terraform apply -target=aws_instance.web
 terraform destroy -target=aws_instance.web
+
+terraform always use -var as a default command = terraform apply -var filename=/root/mypet.txt even exists a file variables.tf/terraform.tfvars/
