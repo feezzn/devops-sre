@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: my-app-container
-        image: my-app-image:latest       
+    image: my-app-image:latest       
