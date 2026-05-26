@@ -11,9 +11,8 @@ terraform {
     }
   }
   backend "s3" {
-    bucket       = "felps-tf-state"
-    key          = "felps-tf-state/terraform.tfstate"
-    region       = "us-east-1"
-    use_lockfile = true
+    bucket = "felps-tf-state"
+    key    = "felps-tf-state/terraform.tfstate"
+    region = "us-east-1"
   }
 }
