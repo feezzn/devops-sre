@@ -23,3 +23,11 @@ terraform apply -target=aws_instance.web
 terraform destroy -target=aws_instance.web
 
 terraform always use -var as a default command = terraform apply -var filename=/root/mypet.txt even exists a file variables.tf/terraform.tfvars/
+
+User": {
+        "Path": "/",
+        "UserName": "felps",
+        "UserId": "AIDAZTXERMSFM64RWLPL3",
+        "Arn": "arn:aws:iam::660830512266:user/felps",
+        "CreateDate": "2026-05-25T23:34:24+00:00"
+    }
