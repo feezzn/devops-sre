@@ -2,24 +2,39 @@
 .terraform/
 *.tfstate
 *.tfstate.*
+.terraform.tfstate.lock.info
 crash.log
 crash.*.log
 
-# Sensitive / local overrides
+# Terraform local variable files and overrides
 *.tfvars
 *.tfvars.json
+*.auto.tfvars
+*.auto.tfvars.json
 override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
 
-# CLI configs / local files
+# Terraform plans
+tfplan
+*.tfplan
+*.plan
+plan.out
+
+# Terraform CLI config
 .terraformrc
 terraform.rc
 
-# Variable files locais
-*.auto.tfvars
-*.auto.tfvars.json
+# Local environment and cloud credentials
+.env
+.env.*
+.aws/
+.azure/
+*.pem
+*.pfx
+*.key
+*.crt
 
-# Keep the dependency lock file versioned
-!.terraform.lock.hcl                                    
+# Keep provider dependency lock files versioned
+!.terraform.lock.hcl
