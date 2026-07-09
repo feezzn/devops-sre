@@ -2,6 +2,10 @@
 
 Laboratório de aprendizado de **Terraform** com infraestrutura básica em **AWS** e **Azure**. Objetivo: preparação para **AWS Certified Associate** e domínio de IaC em ambiente empresarial.
 
+> A trilha avançada de autoria de módulos está em
+> [`terraform/`](terraform/README.md). Os diretórios `AZURE/` e `AWS/` foram
+> mantidos como histórico dos primeiros laboratórios.
+
 ---
 
 ## 📚 Objetivos de Aprendizado

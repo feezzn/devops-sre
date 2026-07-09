@@ -1,0 +1,8 @@
+unique_suffix = "felipe01"
+
+assign_current_principal_blob_data_role = true
+
+tags = {
+  owner       = "felipe"
+  cost_center = "lab"
+}

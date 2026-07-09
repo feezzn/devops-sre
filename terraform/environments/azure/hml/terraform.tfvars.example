@@ -1,0 +1,15 @@
+environment          = "hml"
+project_name         = "devops"
+resource_group_name  = "rg-devops-hml"
+storage_account_name = "stfeezznhml"
+
+account_replication_type      = "ZRS"
+delete_retention_days         = 14
+public_network_access_enabled = true
+
+containers = ["container-hml"]
+
+tags = {
+  owner       = "felipe"
+  cost_center = "lab"
+}

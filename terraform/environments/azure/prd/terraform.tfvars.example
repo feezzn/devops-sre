@@ -1,0 +1,15 @@
+environment          = "prd"
+project_name         = "devops"
+resource_group_name  = "rg-devops-prd"
+storage_account_name = "stfeezznprd"
+
+account_replication_type      = "GRS"
+delete_retention_days         = 30
+public_network_access_enabled = true
+
+containers = ["container-prd"]
+
+tags = {
+  owner       = "felipe"
+  cost_center = "lab"
+}
