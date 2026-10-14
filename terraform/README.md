@@ -45,6 +45,17 @@ endereços do módulo. Um plan de ensaio contra o state original confirmou:
 versionamento/retenção, bloqueio de blob público anônimo e substituição do
 argumento depreciado `storage_account_name` por `storage_account_id`.
 
+Antes de migrar o state do `dev`, crie o backend compartilhado seguindo a seção
+["Criar o backend"](#1-criar-o-backend). O Storage Account `stfeezzndev` é o
+recurso do laboratório; o backend remoto usa outro Storage Account, por exemplo
+`sttfstatefelipe01`, dentro do container `tfstate`.
+
+Se o `terraform init -migrate-state` retornar `lookup
+<storage-account>.blob.core.windows.net: no such host`, o backend configurado
+em `backend.hcl` ainda não existe ou o nome está errado. Nesse caso, não rode
+`plan/apply` no ambiente: volte para o bootstrap, crie o backend e depois tente
+a migração novamente.
+
 Depois de criar o backend compartilhado, migre o state sem importar ou recriar
 recursos:
 
@@ -74,8 +85,8 @@ Após a migração, `AZURE/` é apenas histórico e não deve mais executar
 
 ### 1. Criar o backend
 
-O backend não pode criar a si próprio. Primeiro, inicialize o bootstrap usando
-state local:
+O backend não pode criar a si próprio. Por isso o bootstrap começa sem bloco
+`backend "azurerm"` ativo e usa state local apenas nessa primeira execução:
 
 ```bash
 az login
@@ -83,18 +94,19 @@ export ARM_SUBSCRIPTION_ID="$(az account show --query id -o tsv)"
 
 cd terraform/shared/bootstrap/azure
 cp terraform.tfvars.example terraform.tfvars
-terraform init -backend=false
+terraform init -reconfigure
 terraform plan -out=tfplan
 terraform apply tfplan
 terraform output
 ```
 
-Depois de o Storage Account existir, copie
-`backend.hcl.example` para `backend.hcl`, substitua os valores pelos outputs e
-migre o próprio state do bootstrap:
+Depois de o Storage Account existir, ative o backend remoto do próprio
+bootstrap e migre o state local para ele:
 
 ```bash
+cp backend.remote.tf.example backend.remote.tf
 cp backend.hcl.example backend.hcl
+# confira se backend.hcl aponta para os valores criados pelo bootstrap
 terraform init -migrate-state -backend-config=backend.hcl
 ```
 

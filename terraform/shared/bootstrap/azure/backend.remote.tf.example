@@ -1,0 +1,5 @@
+# Copy this file to backend.remote.tf only after this bootstrap root has
+# created the Storage Account and container used by the azurerm backend.
+terraform {
+  backend "azurerm" {}
+}
